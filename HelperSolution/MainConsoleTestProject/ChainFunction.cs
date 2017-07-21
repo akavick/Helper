@@ -30,23 +30,42 @@ namespace MainConsoleTestProject
             Console.WriteLine(value ?? "null");
         }
 
+
+
         public delegate dynamic SumDeleg(int? x = null);
-        private int? _total;
 
         private dynamic Sum(int? value = null)
         {
             if (value == null)
+                return null;
+
+            dynamic InnerFun(int? val = null)
             {
-                var result = _total;
-                _total = null;
-                return result;
+                if (val == null)
+                    return value;
+                value += val;
+                return (SumDeleg)InnerFun;
             }
-            if (_total == null)
-            {
-                _total = 0;
-            }
-            _total += value;
-            return (SumDeleg)Sum;
+
+            return (SumDeleg)InnerFun;
         }
+
+
+        //private int? _total;
+        //private dynamic Sum(int? value = null)
+        //{
+        //    if (value == null)
+        //    {
+        //        var result = _total;
+        //        _total = null;
+        //        return result;
+        //    }
+        //    if (_total == null)
+        //    {
+        //        _total = 0;
+        //    }
+        //    _total += value;
+        //    return (SumDeleg)Sum;
+        //}
     }
 }
