@@ -1,11 +1,18 @@
-﻿namespace MainConsoleTestProject
+﻿using System;
+
+namespace MainConsoleTestProject
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            //new MatrixPainter().Run();
-            new ChainFunction().Run();
+            new MatrixPainter().Run();
+            //new ChainFunction().Run();
+
+
+
+
+            Console.ReadKey(true);
         }
     }
 }

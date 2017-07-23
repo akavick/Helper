@@ -2,7 +2,7 @@
 
 namespace MainConsoleTestProject
 {
-    class ChainFunction
+    internal class ChainFunction
     {
         public void Run()
         {
@@ -21,20 +21,17 @@ namespace MainConsoleTestProject
             Print(value5);
             Print(value6);
             Print(value7);
-
-            Console.ReadKey(true);
         }
 
-        public void Print(object value)
+        private static void Print(object value)
         {
             Console.WriteLine(value ?? "null");
         }
 
 
+        private delegate dynamic SumDeleg(int? x = null);
 
-        public delegate dynamic SumDeleg(int? x = null);
-
-        private dynamic Sum(int? value = null)
+        private static dynamic Sum(int? value = null)
         {
             if (value == null)
                 return null;
@@ -51,21 +48,6 @@ namespace MainConsoleTestProject
         }
 
 
-        //private int? _total;
-        //private dynamic Sum(int? value = null)
-        //{
-        //    if (value == null)
-        //    {
-        //        var result = _total;
-        //        _total = null;
-        //        return result;
-        //    }
-        //    if (_total == null)
-        //    {
-        //        _total = 0;
-        //    }
-        //    _total += value;
-        //    return (SumDeleg)Sum;
-        //}
+
     }
 }
