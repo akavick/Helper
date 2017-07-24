@@ -6,9 +6,9 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            new MatrixPainter().Run();
+            //new MatrixPainter().Run();
             //new ChainFunction().Run();
-
+            new StaticGcTest().Run();
 
 
 
