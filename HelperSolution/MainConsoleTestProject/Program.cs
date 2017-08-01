@@ -8,8 +8,8 @@ namespace MainConsoleTestProject
         {
             //new MatrixPainter().Run();
             //new ChainFunction().Run();
-            new StaticGcTest().Run();
-
+            //new StaticGcTest().Run();
+            new ProcessTest().Run();
 
 
             Console.ReadKey(true);
