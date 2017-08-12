@@ -9,8 +9,8 @@ namespace MainConsoleTestProject
             //new MatrixPainter().Run();
             //new ChainFunction().Run();
             //new StaticGcTest().Run();
-            new ProcessTest().Run();
-
+            //new ProcessTest().Run();
+            new Tricks().Run();
 
             Console.ReadKey(true);
         }
