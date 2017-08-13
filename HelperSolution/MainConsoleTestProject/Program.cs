@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace MainConsoleTestProject
 {
@@ -10,9 +11,24 @@ namespace MainConsoleTestProject
             //new ChainFunction().Run();
             //new StaticGcTest().Run();
             //new ProcessTest().Run();
-            new Tricks().Run();
+            //new Tricks().Run();
+
+            Console.WriteLine("hi");
+
+            MAsync();
+
+            Console.WriteLine("bye");
 
             Console.ReadKey(true);
+        }
+
+
+
+        private static async void MAsync()
+        {
+            //await Task.Yield();
+            await Task.Delay(1000);
+            Console.WriteLine("here");
         }
     }
 }
