@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MainConsoleTestProject
 {
-    class ProcessTest
+    internal class ProcessTest
     {
 
         public void Run()

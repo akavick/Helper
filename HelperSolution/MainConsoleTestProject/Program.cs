@@ -13,11 +13,14 @@ namespace MainConsoleTestProject
             //new ProcessTest().Run();
             //new Tricks().Run();
 
-            Console.WriteLine("hi");
+            //Console.WriteLine("hi");
+            //MAsync();
+            //Console.WriteLine("bye");
 
-            MAsync();
 
-            Console.WriteLine("bye");
+            Console.WriteLine(DateTime.Parse("01.17.2017"));
+
+
 
             Console.ReadKey(true);
         }

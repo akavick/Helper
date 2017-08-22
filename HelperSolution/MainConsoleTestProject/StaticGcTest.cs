@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MainConsoleTestProject
 {
-    class TestStaticGcClass : IDisposable
+    internal class TestStaticGcClass : IDisposable
     {
         private static readonly object Obj = new object();
         private object _object;
@@ -22,7 +22,7 @@ namespace MainConsoleTestProject
         }
     }
 
-    class StaticGcTest
+    internal class StaticGcTest
     {
 
         public void Run()

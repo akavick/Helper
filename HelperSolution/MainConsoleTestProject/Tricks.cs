@@ -30,17 +30,17 @@ namespace MainConsoleTestProject
         }
     }
 
-    class A
+    internal class A
     {
         public B B { get; set; }
     }
 
-    class B
+    internal class B
     {
         public C C { get; set; }
     }
 
-    class C
+    internal class C
     {
         public object O { get; set; }
     }
@@ -83,8 +83,9 @@ namespace MainConsoleTestProject
 
         }
 
-        interface ICla { }
-        struct Str : ICla { }
+        private interface ICla { }
+
+        private struct Str : ICla { }
 
 
 
