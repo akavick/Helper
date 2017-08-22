@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Dynamic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MainConsoleTestProject
@@ -7,31 +11,106 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            //new MatrixPainter().Run();
-            //new ChainFunction().Run();
-            //new StaticGcTest().Run();
-            //new ProcessTest().Run();
-            //new Tricks().Run();
-
-            //Console.WriteLine("hi");
-            //MAsync();
-            //Console.WriteLine("bye");
-
-
-            Console.WriteLine(DateTime.Parse("01.17.2017"));
-
-
-
+            new Program().Run1();
             Console.ReadKey(true);
         }
 
 
 
-        private static async void MAsync()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void Run1()
         {
-            //await Task.Yield();
-            await Task.Delay(1000);
-            Console.WriteLine("here");
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            for (int i = 1; i < 300000001; i++)
+            {
+                //var r = 163156789 / i;
+                var r = 163156789 * Math.Pow(i, -1);
+
+            }
+
+            sw.Stop();
+            Console.WriteLine(sw.Elapsed);
+
+            //var primeNumberTask = Task.Run(() =>
+            //{
+            //    return Enumerable
+            //        .Range(2, 3000000)
+            //        .Count(n => Enumerable
+            //            .Range(2, (int)Math.Sqrt(n) - 1)
+            //            .All(i => n % i > 0));
+            //});
+            //Console.WriteLine("Task running ... ");
+            //Console.WriteLine("The answer is " + primeNumberTask.Result);
+
+
+            //for (var i = 0; i < 10000; i++)
+            //{
+            //    var x = i;
+            //    //Task.Run(async () =>
+            //    //{
+            //    //    await Task.Delay(1000);
+            //    //    Console.WriteLine(x);
+            //    //});
+            //    //Task.Factory.StartNew(() =>
+            //    //{
+            //    //    Thread.Sleep(1000);
+            //    //    Console.WriteLine(x);
+            //    //}, TaskCreationOptions.LongRunning);
+            //}
         }
+
+        private void Run2() => new MatrixPainter().Run();
+
+        private void Run3() => new ChainFunction().Run();
+
+        private void Run4() => new StaticGcTest().Run();
+
+        private void Run5() => new ProcessTest().Run();
+
+        private void Run6() => new Tricks().Run();
+
+        private void Run7()
+        {
+            Console.WriteLine("hi");
+            Task.Run(async () =>
+            {
+                //await Task.Yield();
+                await Task.Delay(1000);
+                Console.WriteLine("here");
+            });
+            Console.WriteLine("bye");
+        }
+
+        private void Run8(dynamic a)
+        {
+            var r = a?[0];
+            Console.WriteLine(r);
+        }
+
+
     }
 }
