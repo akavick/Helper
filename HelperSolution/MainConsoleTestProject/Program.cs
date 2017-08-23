@@ -11,49 +11,37 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            new Program().Run1();
+            //new Program().Run1();
+
+            Console.WriteLine("hi");
+
+            var t = Task.Run(() =>
+            {
+                for (var i = 0; i < 3; i++)
+                    Console.WriteLine("i");
+            });
+
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                Console.WriteLine("phase 2");
+            });
+
+            Console.WriteLine("bye");
             Console.ReadKey(true);
         }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         private void Run1()
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-
-            for (int i = 1; i < 300000001; i++)
-            {
-                //var r = 163156789 / i;
-                var r = 163156789 * Math.Pow(i, -1);
-
-            }
-
-            sw.Stop();
-            Console.WriteLine(sw.Elapsed);
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
+            //for (int i = 1; i < 300000001; i++)
+            //{
+            //    //var r = 163156789 / i;
+            //}
+            //sw.Stop();
+            //Console.WriteLine(sw.Elapsed);
 
             //var primeNumberTask = Task.Run(() =>
             //{
@@ -111,6 +99,21 @@ namespace MainConsoleTestProject
             Console.WriteLine(r);
         }
 
+        private void Run9()
+        {
+            TaskScheduler.UnobservedTaskException += (s, e) =>
+            {
+                Console.WriteLine(e.Exception);
+                e.SetObserved();
+            };
+
+            Task.Run(() => throw new Exception("boom!"));
+
+            Task.Delay(1000).GetAwaiter().GetResult();
+
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
 
     }
 }
