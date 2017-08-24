@@ -13,23 +13,24 @@ namespace MainConsoleTestProject
         {
             //new Program().Run1();
 
-            Console.WriteLine("hi");
 
-            var t = Task.Run(() =>
-            {
-                for (var i = 0; i < 3; i++)
-                    Console.WriteLine("i");
-            });
 
-            t.GetAwaiter().OnCompleted(() =>
-            {
-                Console.WriteLine("phase 2");
-            });
 
-            Console.WriteLine("bye");
+
+
+
+
+
+
+
+
+
+
+
+
+
             Console.ReadKey(true);
         }
-
 
 
         private void Run1()
@@ -114,6 +115,44 @@ namespace MainConsoleTestProject
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
+
+        private void Run10()
+        {
+            Console.WriteLine("hi");
+
+            var t = Task.Run(() =>
+            {
+                for (var i = 0;i < 3;i++)
+                    Console.WriteLine("i");
+            });
+
+            t.GetAwaiter().OnCompleted(() =>
+            {
+                Console.WriteLine("phase 2");
+            });
+
+            Console.WriteLine("bye");
+        }
+
+
+        private void Run11()
+        {
+            for (var i = 10;i < 41;i++)
+            {
+                var str = string.Format($"{{0, {i}}}", $"hello#{i}");
+                Console.WriteLine(str);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
 
     }
 }
