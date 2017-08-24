@@ -11,7 +11,7 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            //new Program().Run1();
+            new Program().Run11();
 
 
 
@@ -140,6 +140,7 @@ namespace MainConsoleTestProject
             for (var i = 10;i < 41;i++)
             {
                 var str = string.Format($"{{0, {i}}}", $"hello#{i}");
+                //var str = string.Format(string.Format("{{0, {0}}}", i), string.Format("hello#{0}", i));
                 Console.WriteLine(str);
             }
         }
