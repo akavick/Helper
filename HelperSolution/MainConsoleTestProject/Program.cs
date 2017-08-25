@@ -11,26 +11,53 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            new Program().Run11();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            new Program().Run12();
             Console.ReadKey(true);
         }
+
+
+
+
+
+        private void Run12()
+        {
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         private void Run1()
