@@ -23,9 +23,9 @@ namespace MainConsoleTestProject
         {
 
 
+            TaskCompletionSource<int> tcs = new TaskCompletionSource<int>();
 
-
-
+            throw null;
 
 
         }
