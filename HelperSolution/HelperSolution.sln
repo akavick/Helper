@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainConsoleTestProject", "MainConsoleTestProject\MainConsoleTestProject.csproj", "{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WpfApplicationIronPythonTest", "WpfApplicationIronPythonTest\WpfApplicationIronPythonTest.pyproj", "{3011DDAD-6A60-43D1-A8D6-DF49429E4E41}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{92CAF4F3-EFCA-4E09-9AEC-802F2B5DAEBA}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WpfIronPythonTest", "WpfIronPythonTest\WpfIronPythonTest.pyproj", "{BD3B961C-6259-4FF1-888D-2A4F96CEA83F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,12 +19,12 @@ Global
 		{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3011DDAD-6A60-43D1-A8D6-DF49429E4E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3011DDAD-6A60-43D1-A8D6-DF49429E4E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92CAF4F3-EFCA-4E09-9AEC-802F2B5DAEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92CAF4F3-EFCA-4E09-9AEC-802F2B5DAEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92CAF4F3-EFCA-4E09-9AEC-802F2B5DAEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92CAF4F3-EFCA-4E09-9AEC-802F2B5DAEBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD3B961C-6259-4FF1-888D-2A4F96CEA83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD3B961C-6259-4FF1-888D-2A4F96CEA83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
