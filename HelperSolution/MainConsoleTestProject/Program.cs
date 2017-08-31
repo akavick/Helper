@@ -25,8 +25,17 @@ namespace MainConsoleTestProject
 
             TaskCompletionSource<int> tcs = new TaskCompletionSource<int>();
 
-            throw null;
+            new Thread(() =>
+            {
+                Thread.Sleep(2000);
+                tcs.SetResult(42);
+            })
+            { IsBackground = true }
+            .Start();
 
+            Task<int> task = tcs.Task; // "Подчиненная" задача
+ 
+            Console.WriteLine(task.Result); // 42
 
         }
 
@@ -62,6 +71,15 @@ namespace MainConsoleTestProject
 
         private void Run1()
         {
+            try
+            {
+                throw null;
+            }
+            catch
+            {
+
+            }
+
             //Stopwatch sw = new Stopwatch();
             //sw.Start();
             //for (int i = 1; i < 300000001; i++)
