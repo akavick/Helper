@@ -11,17 +11,22 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            new Program().Run12();
+            //new Program().Run12();
+
             Console.ReadKey(true);
         }
 
 
 
 
-
         private void Run12()
         {
+            var sc = SynchronizationContext.Current;
 
+
+            Console.WriteLine(sc?.ToString() ?? "null");
+
+            var timer = new System.Timers.Timer(5000) { AutoReset = false };
 
             TaskCompletionSource<int> tcs = new TaskCompletionSource<int>();
 
@@ -34,7 +39,7 @@ namespace MainConsoleTestProject
             .Start();
 
             Task<int> task = tcs.Task; // "Подчиненная" задача
- 
+
             Console.WriteLine(task.Result); // 42
 
         }

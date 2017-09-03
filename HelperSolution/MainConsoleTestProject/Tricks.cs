@@ -155,6 +155,16 @@ namespace MainConsoleTestProject
         private int Min3(int a, int b) => Math.Min(a, b);
 
 
+        private int GetPrimesCount(int start, int count)
+        {
+            return
+                ParallelEnumerable
+                    .Range(start, count)
+                    .Count(n => Enumerable
+                               .Range(2, (int)Math.Sqrt(n) - 1)
+                               .All(i => n % i > 0));
+        }
+
 
         private int SumArrGt(int[] arr, int gt)
         {
