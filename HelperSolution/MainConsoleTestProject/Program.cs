@@ -1,21 +1,43 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Dynamic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using static System.Linq.Enumerable;
+using static System.Threading.Tasks.Task;
 
 namespace MainConsoleTestProject
 {
     internal class Program
     {
+
         private static void Main(string[] args)
         {
-            //new Program().Run12();
+            new Program().Run13();
+
 
             Console.ReadKey(true);
         }
 
+
+
+        private async void Run13()
+        {
+            var tasks = Range(1, 5).Select(async i =>
+            {
+                var time = i * 1000;
+                await Delay(time);
+                return time / 1000.0;
+            });
+
+            //var result = await await WhenAny(tasks);
+            var result = (await WhenAll(tasks)).Sum();
+
+            Console.WriteLine(result);
+        }
 
 
 
@@ -135,10 +157,10 @@ namespace MainConsoleTestProject
         private void Run7()
         {
             Console.WriteLine("hi");
-            Task.Run(async () =>
+            Run(async () =>
             {
                 //await Task.Yield();
-                await Task.Delay(1000);
+                await Delay(1000);
                 Console.WriteLine("here");
             });
             Console.WriteLine("bye");
@@ -158,9 +180,9 @@ namespace MainConsoleTestProject
                 e.SetObserved();
             };
 
-            Task.Run(() => throw new Exception("boom!"));
+            Run(() => throw new Exception("boom!"));
 
-            Task.Delay(1000).GetAwaiter().GetResult();
+            Delay(1000).GetAwaiter().GetResult();
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -170,7 +192,7 @@ namespace MainConsoleTestProject
         {
             Console.WriteLine("hi");
 
-            var t = Task.Run(() =>
+            var t = Run(() =>
             {
                 for (var i = 0;i < 3;i++)
                     Console.WriteLine("i");
