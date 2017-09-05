@@ -11,21 +11,94 @@ using static System.Threading.Tasks.Task;
 
 namespace MainConsoleTestProject
 {
+    internal static class TaskExtensions
+    {
+        internal static async Task<TResult> WithTimeout<TResult>(this Task<TResult> task, TimeSpan timeout)
+        {
+            var winner = await WhenAny(task, Delay(timeout));
+            if (winner != task)
+                throw new TimeoutException();
+            return await task; // Извлечь результат или повторно сгенерировать исключение
+        }
+
+        internal static Task<TResult> WithCancellation<TResult>(this Task<TResult> task, CancellationToken cancelToken)
+        {
+            var tcs = new TaskCompletionSource<TResult>();
+            var reg = cancelToken.Register(() => tcs.TrySetCanceled());
+            task.ContinueWith(ant =>
+            {
+                reg.Dispose();
+                if (ant.IsCanceled)
+                    tcs.TrySetCanceled();
+                else if (ant.IsFaulted)
+                    tcs.TrySetException(ant.Exception.InnerException);
+                else
+                    tcs.TrySetResult(ant.Result);
+            });
+            return tcs.Task;
+        }
+
+        internal static async Task<TResult[]> WhenAllOrError<TResult>(params Task<TResult>[] tasks)
+        {
+            var killJoy = new TaskCompletionSource<TResult[]>();
+            foreach (var task in tasks)
+                task.ContinueWith(ant =>
+                {
+                    if (ant.IsCanceled)
+                        killJoy.TrySetCanceled();
+                    else if (ant.IsFaulted)
+                        killJoy.TrySetException(ant.Exception.InnerException);
+                });
+            return await await Task.WhenAny(killJoy.Task, Task.WhenAll(tasks));
+        }
+
+    }
+
     internal class Program
     {
-
         private static void Main(string[] args)
         {
-            new Program().Run13();
-
-
+            new Program().Run14();
             Console.ReadKey(true);
+        }
+
+
+
+
+
+
+
+
+
+        private async void Run14()
+        {
+            var src = new CancellationTokenSource();
+            var toc = src.Token;
+
+            var t = Task.Run(async () =>
+            {
+                await Task.Delay(5000);
+                Console.WriteLine("OOps!");
+                return 10;
+            })
+            .WithCancellation(toc);
+
+            await Task.Run(async () =>
+            {
+                await Task.Delay(2000);
+                src.Cancel();
+                t.Dispose();
+            });
+
+
+            Console.WriteLine();
         }
 
 
 
         private async void Run13()
         {
+
             var tasks = Range(1, 5).Select(async i =>
             {
                 var time = i * 1000;
@@ -50,7 +123,7 @@ namespace MainConsoleTestProject
 
             var timer = new System.Timers.Timer(5000) { AutoReset = false };
 
-            TaskCompletionSource<int> tcs = new TaskCompletionSource<int>();
+            var tcs = new TaskCompletionSource<int>();
 
             new Thread(() =>
             {
@@ -60,7 +133,7 @@ namespace MainConsoleTestProject
             { IsBackground = true }
             .Start();
 
-            Task<int> task = tcs.Task; // "Подчиненная" задача
+            var task = tcs.Task; // "Подчиненная" задача
 
             Console.WriteLine(task.Result); // 42
 
@@ -159,8 +232,8 @@ namespace MainConsoleTestProject
             Console.WriteLine("hi");
             Run(async () =>
             {
-                //await Task.Yield();
-                await Delay(1000);
+            //await Task.Yield();
+            await Delay(1000);
                 Console.WriteLine("here");
             });
             Console.WriteLine("bye");
@@ -216,16 +289,5 @@ namespace MainConsoleTestProject
                 Console.WriteLine(str);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
