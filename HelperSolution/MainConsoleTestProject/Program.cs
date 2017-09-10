@@ -58,13 +58,29 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            new Program().Run14();
+            new Program().Run15();
             Console.ReadKey(true);
         }
 
 
 
 
+        private void Run15()
+        {
+            var signal = new ManualResetEvent(false);
+            var х = 0;
+
+            new Thread(() =>
+            {
+                х++;
+                signal.Set();
+            })
+            .Start();
+
+            signal.WaitOne();
+
+            Console.WriteLine(х); // 1 (всегда)
+        }
 
 
 
@@ -232,8 +248,8 @@ namespace MainConsoleTestProject
             Console.WriteLine("hi");
             Run(async () =>
             {
-            //await Task.Yield();
-            await Delay(1000);
+                //await Task.Yield();
+                await Delay(1000);
                 Console.WriteLine("here");
             });
             Console.WriteLine("bye");
