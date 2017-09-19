@@ -11,99 +11,68 @@ using static System.Threading.Tasks.Task;
 
 namespace MainConsoleTestProject
 {
-    internal static class TaskExtensions
-    {
-        internal static async Task<TResult> WithTimeout<TResult>(this Task<TResult> task, TimeSpan timeout)
-        {
-            var winner = await WhenAny(task, Delay(timeout));
-            if (winner != task)
-                throw new TimeoutException();
-            return await task; // Извлечь результат или повторно сгенерировать исключение
-        }
-
-        internal static Task<TResult> WithCancellation<TResult>(this Task<TResult> task, CancellationToken cancelToken)
-        {
-            var tcs = new TaskCompletionSource<TResult>();
-            var reg = cancelToken.Register(() => tcs.TrySetCanceled());
-            task.ContinueWith(ant =>
-            {
-                reg.Dispose();
-                if (ant.IsCanceled)
-                    tcs.TrySetCanceled();
-                else if (ant.IsFaulted)
-                    tcs.TrySetException(ant.Exception.InnerException);
-                else
-                    tcs.TrySetResult(ant.Result);
-            });
-            return tcs.Task;
-        }
-
-        internal static async Task<TResult[]> WhenAllOrError<TResult>(params Task<TResult>[] tasks)
-        {
-            var killJoy = new TaskCompletionSource<TResult[]>();
-            foreach (var task in tasks)
-                task.ContinueWith(ant =>
-                {
-                    if (ant.IsCanceled)
-                        killJoy.TrySetCanceled();
-                    else if (ant.IsFaulted)
-                        killJoy.TrySetException(ant.Exception.InnerException);
-                });
-            return await await Task.WhenAny(killJoy.Task, Task.WhenAll(tasks));
-        }
-
-    }
-
-
-    internal class OneAtATimePlease
-    {
-        public void Run()
-        {
-            // Назначение объекту Mutex имени делает его доступным на уровне всего компьютера.
-            // Используйте имя, являющееся уникальным для вашей компании и приложения
-            // (например, включите в него URL компании) .
-            using (var mutex = new Mutex(true, "VeryLongAndUniqueMutexName"))
-            {
-                // Ожидать несколько секунд, если возникло соперничество; в этом случае
-                // другой экземпляр прог раммы все еше находится в процессе завершения.
-                if (!mutex.WaitOne(TimeSpan.FromSeconds(3), false))
-                {
-                    Console.WriteLine("Another iпstance of the арр is running. Буе!");
-                    // Выполняется другой экземпляр прог раммы
-                    return;
-                }
-                try
-                {
-                    RunProgram();
-                }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
-            }
-        }
-
-        static void RunProgram()
-        {
-            Console.WriteLine("Runпiпg. Press Enter to exit");
-            // Программа выполняется; нажмите Enter для завершения
-            Console.ReadLine();
-        }
-    }
-
-
-
-
-
-
     internal class Program
     {
         private static void Main(string[] args)
         {
-            new OneAtATimePlease().Run();
-            //new Program().Run15();
+
+            new Program().Run17();
             Console.ReadKey(true);
         }
+
+
+
+
+
+        private void Run17()
+        {
+            long x = 1;
+            var y = x >> 190;
+        }
+
+
+
+        private void Run16()
+        {
+            var number = 2;
+            var currentPrime = 3;
+            var primes = new List<int> { currentPrime };
+
+            while (number < 20)
+            {
+                currentPrime += 2;
+
+                //for (var i = 0;;i++)
+                //{
+                //    var divisorPrime = primes[i];
+
+                //    if (currentPrime % divisorPrime == 0)
+                //        break;
+
+                //    if (divisorPrime * divisorPrime < currentPrime)
+                //        continue;
+
+                //    number++;
+                //    primes.Add(currentPrime);
+                //    break;
+                //}
+
+                if (!primes
+                        .TakeWhile(divisorPrime => currentPrime % divisorPrime != 0)
+                        .Any(divisorPrime => divisorPrime * divisorPrime >= currentPrime))
+                    continue;
+                number++;
+                primes.Add(currentPrime);
+            }
+
+        }
+
+
+
+
+
+
+
 
 
         private void StringByHalfReplase()
@@ -339,7 +308,7 @@ namespace MainConsoleTestProject
 
             var t = Run(() =>
             {
-                for (var i = 0;i < 3;i++)
+                for (var i = 0; i < 3; i++)
                     Console.WriteLine("i");
             });
 
@@ -354,12 +323,16 @@ namespace MainConsoleTestProject
 
         private void Run11()
         {
-            for (var i = 10;i < 41;i++)
+            for (var i = 10; i < 41; i++)
             {
                 var str = string.Format($"{{0, {i}}}", $"hello#{i}");
                 //var str = string.Format(string.Format("{{0, {0}}}", i), string.Format("hello#{0}", i));
                 Console.WriteLine(str);
             }
         }
+
+
+
+
     }
 }
