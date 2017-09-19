@@ -221,6 +221,20 @@ namespace MainConsoleTestProject
 
             }
 
+
+
+            var nextPotentialPrime = 15;
+
+            var locker = new object();
+            long GetNextPotentialPrime()
+            {
+                var next = Interlocked.Add(ref nextPotentialPrime, 2);
+
+                return next;
+            }
+
+            Console.WriteLine(GetNextPotentialPrime());
+
             //Stopwatch sw = new Stopwatch();
             //sw.Start();
             //for (int i = 1; i < 300000001; i++)
@@ -245,11 +259,13 @@ namespace MainConsoleTestProject
             //for (var i = 0; i < 10000; i++)
             //{
             //    var x = i;
-            //    //Task.Run(async () =>
-            //    //{
-            //    //    await Task.Delay(1000);
-            //    //    Console.WriteLine(x);
-            //    //});
+            //    Task.Run(async () =>
+            //    {
+            //        await Task.Yield();
+            //        //Thread.Sleep(1000);
+            //        //await Task.Delay(1000);
+            //        Console.WriteLine(x);
+            //    });
             //    //Task.Factory.StartNew(() =>
             //    //{
             //    //    Thread.Sleep(1000);
