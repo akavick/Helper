@@ -45,9 +45,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChainFunction.cs" />
+    <Compile Include="GetCharFromKeys.cs" />
     <Compile Include="MatrixPainter.cs" />
     <Compile Include="OneAtATimePlease.cs" />
     <Compile Include="ProcessTest.cs" />

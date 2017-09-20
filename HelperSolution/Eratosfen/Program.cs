@@ -12,49 +12,42 @@ namespace Eratosfen
     {
         static void Main(string[] args)
         {
-            var n = int.MaxValue;
-            var searched = 10000000;
+            var num = 1;
+            var size = (int)(num * Math.Log(num) + num * Math.Log(Math.Log(num)));
+            if (size < 10)
+                size = 10;
+
 
             var sw = new Stopwatch();
             sw.Start();
 
-            var bools = new BitArray(n);
+            //var bools = new BitArray(size);
+            var bools = new bool[size];
 
-            for (var i = 2; i < n; i++)
+            for (var i = 2; i < size; i++)
                 bools[i] = true;
 
-            var counter = int.MaxValue - 2;
-            var ranToStop = false;
 
-            // Обработка
-            for (int i = 2, end = n + 1; i * i < end; ++i)
+            for (int i = 2, end = size + 1; i * i < end; ++i)
             {
                 if (!bools[i])
                     continue;
-                for (var j = i * i; j < n; j += i)
-                {
+                for (var j = i * i; j < size; j += i)
                     bools[j] = false;
-                    --counter;
-                    //if (n - counter == searched)
-                    //    ranToStop = true;
-                }
             }
 
-
-            sw.Stop();
-
-            Console.WriteLine(sw.Elapsed);
-
-            // Повторный вывод
-            for (int i = 2, num = 1; i < n; i++)
+            for (int i = 2, n = 1; i < size; i++)
             {
                 if (bools[i])
                 {
-                    num++;
-                    if (num == searched)
+                    //Console.WriteLine(i);
+                    if (n++ == num)
                         Console.WriteLine(i);
                 }
             }
+
+            sw.Stop();
+            Console.WriteLine(sw.Elapsed);
         }
     }
 }
