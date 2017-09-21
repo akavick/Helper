@@ -43,8 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LongBitArray.cs" />
+    <Compile Include="OptimizedCached.cs" />
+    <Compile Include="ParalelErathostenes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test1.cs" />
+    <Compile Include="Test2.cs" />
+    <Compile Include="Test3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
