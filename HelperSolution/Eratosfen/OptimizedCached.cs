@@ -52,32 +52,31 @@ namespace Eratosfen
         public static void Run()
         {
             var sNum = 10000000;
-            var N = (int)(sNum * Math.Log(sNum) + sNum * Math.Log(Math.Log(sNum)));
-            int? prime;
+            var n = (int)(sNum * Math.Log(sNum) + sNum * Math.Log(Math.Log(sNum)));
             var count = 0;
 
-            int CACHE = 30000; // размер кэша  
-            int M = (int)Math.Sqrt(N) + 1;
-            var P = (int)Math.Sqrt(sNum) + 1;
+            var cache = 30000; // размер кэша  
+            var m = (int)Math.Sqrt(n) + 1;
+            var p = (int)Math.Sqrt(sNum) + 1;
 
-            var primes = GetDivisorPrimesD(sNum, out prime); // массив простых чисел до корня из N  
-            var segment = new bool[CACHE]; // вторичное решето  
-            for (int I = M - 1; I < N; I += CACHE)
+            var primes = GetDivisorPrimesD(sNum, out var _); // массив простых чисел до корня из N  
+            var segment = new bool[cache]; // вторичное решето  
+            for (var I = m - 1; I < n; I += cache)
             {
-                for (int i = 0; i < CACHE; i++)
+                for (var i = 0; i < cache; i++)
                     segment[i] = true;
 
 
-                for (int i = 0; i < P; i++)
+                for (var i = 0; i < p; i++)
                 {
-                    int h = I % primes[i];
-                    int j = h > 0 ? primes[i] - h : 0;
-                    for (; j < CACHE; j += primes[i])
+                    var h = I % primes[i];
+                    var j = h > 0 ? primes[i] - h : 0;
+                    for (; j < cache; j += primes[i])
                         segment[j] = false;
                 }
-                for (int i = 0; i < CACHE; i++)
+                for (var i = 0; i < cache; i++)
                 {
-                    if (segment[i] && (i + I < N))
+                    if (segment[i] && (i + I < n))
                     {
                         if(count++ == sNum)
                             Console.WriteLine(i + I); // выводим простое число на экран  
