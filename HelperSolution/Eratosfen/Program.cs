@@ -15,7 +15,7 @@ namespace Eratosfen
             var sw = new Stopwatch();
             sw.Start();
 
-            OptimizedCached.Run();
+            Test5.Run();
 
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
