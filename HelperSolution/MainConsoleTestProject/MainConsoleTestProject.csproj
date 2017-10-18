@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ChainFunction.cs" />
     <Compile Include="GetCharFromKeys.cs" />
+    <Compile Include="LongNumbersS.cs" />
     <Compile Include="MatrixPainter.cs" />
     <Compile Include="OneAtATimePlease.cs" />
     <Compile Include="ProcessTest.cs" />

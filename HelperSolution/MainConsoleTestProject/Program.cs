@@ -15,8 +15,8 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-
-            new Program().Run17();
+            //new Program().Run17();
+            LongNumbersS.Run();
             Console.ReadKey(true);
         }
 
