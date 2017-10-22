@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChainFunction.cs" />
+    <Compile Include="Digit.cs" />
     <Compile Include="GetCharFromKeys.cs" />
     <Compile Include="LongNumbersS.cs" />
     <Compile Include="MatrixPainter.cs" />

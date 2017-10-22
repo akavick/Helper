@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,47 +11,72 @@ namespace MainConsoleTestProject
     {
         public static void Run()
         {
-            //todo
+            var list = new List<int> {1, 2, 3, 4, 5};
+            list.InsertRange(1, list.GetRange(2, 2));
+            foreach (var i in list)
+                Console.Write(i + " ");
+
+
+            ////todo
+            ////var ln1 = new LongNumber("915978976987696791597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099689678687967909");
+            ////var ln2 = new LongNumber("9191597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790991597897698769679689678687967909915978976987696796896786879679099159789769876967968967868796790909");
+
+            //var ln1 = new LongNumber("18000");
+            //var ln2 = new LongNumber("9000");
+
+
+            //var sw = new Stopwatch();
+            //sw.Start();
+
+            //var result = ln1 + ln2;
+
+            //sw.Stop();
+            //Console.WriteLine(sw.Elapsed);
+            //Console.WriteLine(result);
         }
 
 
 
         public class LongNumber
         {
-            private readonly int[] _arr;
+            private int[] _arr;
             public bool IsNegative { get; set; }
 
-            #region Constructors
+            public override string ToString() => _arr.Aggregate(new StringBuilder(), (sb, i) =>
+            {
+                sb.Append(i);
+                return sb;
+            }).ToString();
 
-            public LongNumber()
+            public void SetDefault()
             {
                 _arr = new[] { 0 };
                 IsNegative = false;
             }
-            public LongNumber(string number)
-            {
-                if (string.IsNullOrWhiteSpace(number))
-                    throw new ArgumentException(@"Empty number detected");
-                if (number[0] == '-')
-                {
-                    IsNegative = true;
-                    if (number.Length == 1)
-                        throw new ArgumentException(@"Empty negative number detected");
-                    number = number.Substring(1);
-                }
-                _arr = number
-                    .Select((c, i) => int.TryParse(c.ToString(), out var n) ? n : throw new ArgumentException($@"Wrong symbol at {i} position"))
-                    .ToArray();
-            }
+
+            #region Constructors
+
+
+
+            public LongNumber() => SetDefault();
+
+
+
             public LongNumber(string number, bool isNegative = false)
             {
-                if (string.IsNullOrWhiteSpace(number))
+                if (String.IsNullOrWhiteSpace(number))
                     throw new ArgumentException(@"Empty number detected");
-                _arr = number
-                    .Select((c, i) => int.TryParse(c.ToString(), out var n) ? n : throw new ArgumentException($@"Wrong symbol at {i} position"))
-                    .ToArray();
                 IsNegative = isNegative;
+                _arr = number
+                    .Select((c, i) => Int32.TryParse(c.ToString(), out var n) ? n : throw new ArgumentException($@"Wrong symbol at {i} position"))
+                    .SkipWhile(val => val == 0)
+                    .ToArray();
+                if (_arr.Length == 0)
+                    SetDefault();
             }
+
+
+
             public LongNumber(IReadOnlyList<int> arr, bool isNegative = false)
             {
                 if (arr.Count == 0)
@@ -64,6 +90,9 @@ namespace MainConsoleTestProject
                 }
                 IsNegative = isNegative;
             }
+
+
+
             public LongNumber(LongNumber other)
             {
                 IsNegative = other.IsNegative;
@@ -72,127 +101,144 @@ namespace MainConsoleTestProject
                     _arr[i] = other._arr[i];
             }
 
-            #endregion
 
-            public override string ToString()
-            {
-                return _arr.Aggregate(new StringBuilder(), (sb, i) =>
-                {
-                    sb.Append(i);
-                    return sb;
-                }).ToString();
-            }
+
+            #endregion
 
             #region Operators
 
-            public static LongNumber operator -(LongNumber left)
+
+
+            public static bool operator <(LongNumber left, LongNumber right)
             {
-                return new LongNumber(left) { IsNegative = !left.IsNegative };
+                if (ReferenceEquals(left, right))
+                    return false;
+                //доделать негативы
+                if (left._arr.Length != right._arr.Length)
+                    return left._arr.Length < right._arr.Length;
+
+                for (var i = 0; i < left._arr.Length; i++)
+                {
+                    if (left._arr[i] != right._arr[i])
+                        return left._arr[i] < right._arr[i];
+                }
+
+                return false;
             }
+
+
+
+            public static bool operator >(LongNumber left, LongNumber right)
+            {
+                return true;
+            }
+
+
+
+            public static bool operator <=(LongNumber left, LongNumber right)
+            {
+                return true;
+            }
+
+
+
+            public static bool operator >=(LongNumber left, LongNumber right)
+            {
+                return true;
+            }
+
+
+
+            public static bool operator ==(LongNumber left, LongNumber right)
+            {
+                return true;
+            }
+
+
+
+            public static bool operator !=(LongNumber left, LongNumber right)
+            {
+                return true;
+            }
+
+
+
+            public static LongNumber operator -(LongNumber left) => new LongNumber(left) { IsNegative = !left.IsNegative };
+
+
+
             public static LongNumber operator +(LongNumber left, LongNumber right)
             {
-                return null;
+                //доделать негативы
+                if (left._arr.Length > right._arr.Length)
+                    Swap(ref left, ref right);
+
+                var leftIndex = left._arr.Length - 1;
+                var rightIndex = right._arr.Length - 1;
+                var memory = false;
+                var result = new List<int>();
+
+                while (rightIndex >= 0)
+                {
+                    var rightDigit = right._arr[rightIndex];
+                    if (memory)
+                        rightDigit++;
+                    var leftDigit = leftIndex >= 0 ? left._arr[leftIndex] : 0;
+
+                    var resultDigit = leftDigit + rightDigit;
+                    memory = resultDigit > 9;
+                    if (memory)
+                        resultDigit -= 10;
+                    result.Add(resultDigit);
+                    leftIndex--;
+                    rightIndex--;
+                }
+
+                if (memory)
+                    result.Add(1);
+
+                result.Reverse();
+                return new LongNumber(result);
             }
+
+
+
             public static LongNumber operator -(LongNumber left, LongNumber right)
             {
                 return null;
             }
+
+
+
             public static LongNumber operator *(LongNumber left, LongNumber right)
             {
                 return null;
             }
+
+
+
+
             public static LongNumber operator /(LongNumber left, LongNumber right)
             {
                 return null;
             }
 
-            #endregion
-        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public class Digit
-        {
-            #region Static
-
-            private static readonly Dictionary<string, int> StrToInt = new Dictionary<string, int>
-                {
-                    {"0", 0},{"1", 1},{"2", 2},{"3", 3},{"4", 4},{"5", 5},{"6", 6},{"7", 7},{"8", 8},{"9", 9}
-                };
-            private static readonly Dictionary<char, int> CharToInt = new Dictionary<char, int>
-                {
-                    {'0', 0},{'1', 1},{'2', 2},{'3', 3},{'4', 4},{'5', 5},{'6', 6},{'7', 7},{'8', 8},{'9', 9}
-                };
-            private static readonly Dictionary<int, string> IntToStr = new Dictionary<int, string>
-                {
-                    {0, "0"},{1, "1"},{2, "2"},{3, "3"},{4, "4"},{5, "5"},{6, "6"},{7, "7"},{8, "8"},{9, "9"}
-                };
-            private static readonly Dictionary<int, char> IntToChar = new Dictionary<int, char>
-                {
-                    {0, '0'},{1, '1'},{2, '2'},{3, '3'},{4, '4'},{5, '5'},{6, '6'},{7, '7'},{8, '8'},{9, '9'}
-                };
-
-            public static Digit FromChar(char c) => new Digit(CharToInt[c]);
-            public static Digit FromString(string s) => new Digit(StrToInt[s]);
-            public static char GetChar(Digit d) => d.Char;
-            public static string GetString(Digit d) => d.String;
 
             #endregion
 
-            #region Fields
+            #region Helpers
 
-            private int _value;
 
-            #endregion
 
-            #region Constructors
-
-            public Digit() => _value = 0;
-            public Digit(int value) => Value = value;
-            public Digit(char value) => Char = value;
-            public Digit(string value) => String = value;
-
-            #endregion
-
-            #region Properties
-
-            public char Char
+            private static void Swap<T>(ref T left, ref T right)
             {
-                get => IntToChar[_value];
-                set => _value = int.Parse(value.ToString());
+                var temp = left;
+                left = right;
+                right = temp;
             }
 
-            public string String
-            {
-                get => IntToStr[_value];
-                set => _value = int.Parse(value);
-            }
 
-            public int Value
-            {
-                get => _value;
-                set
-                {
-                    if (value < 0 || value > 9)
-                        throw new ArgumentException(@"Wrong number");
-                    _value = value;
-                }
-            }
 
             #endregion
         }
