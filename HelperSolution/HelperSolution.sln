@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainConsoleTestProject", "MainConsoleTestProject\MainConsoleTestProject.csproj", "{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}"
 EndProject
@@ -22,8 +22,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_002", "Test_002\Test_002.csproj", "{893928E5-CDA2-47D3-AB5F-E03CF92B38A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinLog", "WinLog\WinLog.csproj", "{4816C281-675C-46B1-9766-309AE9886BE0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{9DD8542C-C799-428F-B18B-92549D230662}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseMove", "MouseMove\MouseMove.csproj", "{8DAEA837-64DD-49A8-ACA6-B7C3B2FF20CD}"
 EndProject
@@ -69,10 +67,6 @@ Global
 		{4816C281-675C-46B1-9766-309AE9886BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4816C281-675C-46B1-9766-309AE9886BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4816C281-675C-46B1-9766-309AE9886BE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9DD8542C-C799-428F-B18B-92549D230662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DD8542C-C799-428F-B18B-92549D230662}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DD8542C-C799-428F-B18B-92549D230662}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DD8542C-C799-428F-B18B-92549D230662}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DAEA837-64DD-49A8-ACA6-B7C3B2FF20CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8DAEA837-64DD-49A8-ACA6-B7C3B2FF20CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DAEA837-64DD-49A8-ACA6-B7C3B2FF20CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
