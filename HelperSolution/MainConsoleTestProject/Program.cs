@@ -15,8 +15,13 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
+            var d = new DateTime(2012, 1, 31);
+            Console.WriteLine(d.AddMonths(1));
+            
+            
+            
             //new Program().Run17();
-            LongNumbersS.Run();
+            //LongNumbersS.Run();
             Console.ReadKey(true);
         }
 
