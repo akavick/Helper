@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainConsoleTestProject", "MainConsoleTestProject\MainConsoleTestProject.csproj", "{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atkin", "Atkin\Atkin.csproj", "{6A743592-1207-49CA-B958-E7407DE2E9B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eratosfen", "Eratosfen\Eratosfen.csproj", "{4CD6F6CB-E8E7-4C3A-B333-EC4021C76E75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularRefTest", "CircularRefTest\CircularRefTest.csproj", "{76BF609E-03E7-4801-B2BB-E7F461E2C0DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{4CD6F6CB-E8E7-4C3A-B333-EC4021C76E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CD6F6CB-E8E7-4C3A-B333-EC4021C76E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CD6F6CB-E8E7-4C3A-B333-EC4021C76E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76BF609E-03E7-4801-B2BB-E7F461E2C0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76BF609E-03E7-4801-B2BB-E7F461E2C0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76BF609E-03E7-4801-B2BB-E7F461E2C0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76BF609E-03E7-4801-B2BB-E7F461E2C0DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
