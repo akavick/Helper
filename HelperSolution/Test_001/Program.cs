@@ -1,8 +1,19 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.TeamFoundation;
+using Microsoft.TeamFoundation.Core.WebApi;
+using Microsoft.TeamFoundation.Framework.Client;
+using Microsoft.TeamFoundation.Framework.Common;
+using Microsoft.TeamFoundation.Server;
+using Microsoft.TeamFoundation.Server.Core;
+using Microsoft.TeamFoundation.Server.Core.Extensions;
+using Microsoft.TeamFoundation.Server.Core.Extensions.StepPerformers;
+using Microsoft.VisualStudio.Services.WebApi.Location;
+using ILocationService = Microsoft.TeamFoundation.Framework.Client.ILocationService;
 
 namespace Test_001
 {
@@ -36,6 +47,23 @@ namespace Test_001
             var x = ((Func<Int, string>)prog.MyProperty)(20);
             Console.WriteLine(x);
         }
+    }
+
+
+
+
+    class MyClass
+    {
+        private void M()
+        {
+            var c = new CatalogStepPerformer();
+        }
+
+
+
+
+       
+
     }
 
 }
