@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainConsoleTestProject", "MainConsoleTestProject\MainConsoleTestProject.csproj", "{8FA205D2-3A0D-40C8-B85E-E55BFE4A8D22}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonadApp", "MonadApp\MonadApp.csproj", "{B601D925-9C94-49F5-8AB9-96F57010E896}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyMorph", "PolyMorph\PolyMorph.csproj", "{9409CE54-EC3A-452E-9679-11247A03D541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflTest001", "ReflTest001\ReflTest001.csproj", "{9C5B0190-4F08-40E6-9AAF-563690452EBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,10 @@ Global
 		{9409CE54-EC3A-452E-9679-11247A03D541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9409CE54-EC3A-452E-9679-11247A03D541}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9409CE54-EC3A-452E-9679-11247A03D541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C5B0190-4F08-40E6-9AAF-563690452EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5B0190-4F08-40E6-9AAF-563690452EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5B0190-4F08-40E6-9AAF-563690452EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5B0190-4F08-40E6-9AAF-563690452EBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
