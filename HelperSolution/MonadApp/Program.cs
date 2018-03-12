@@ -29,9 +29,9 @@ namespace MonadApp
         private static void Main()
         {
             var val = new Monad<int>(5)
-                    .Bind(v => new Monad<double>(v + 1))
+                    .Bind(v => new Monad<double>(v + 1.0))
                     .Bind(v => new Monad<object>(v * 2))
-                    .Bind(v => new Monad<double>((double)v / 3))
+                    .Bind(v => new Monad<double>((double)v / 3.0))
                     .Bind(v => new Monad<int>((int)v + 2))
                     .Value;
 

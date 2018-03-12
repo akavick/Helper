@@ -15,8 +15,7 @@ namespace MainConsoleTestProject
     {
         private static void Main(string[] args)
         {
-            var d = new DateTime(2012, 1, 31);
-            Console.WriteLine(d.AddMonths(1));
+            new ChainFunction().Run();
             
             
             
