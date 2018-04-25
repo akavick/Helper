@@ -33,7 +33,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflTest001", "ReflTest001\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouplelessNumber", "CouplelessNumber\CouplelessNumber.csproj", "{6625EBF0-7AE0-4540-A91B-4DDEB1C5407F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MontyHall", "MontyHall\MontyHall.csproj", "{246E49AC-673E-4A16-85A6-660CDD3048B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MontyHall", "MontyHall\MontyHall.csproj", "{246E49AC-673E-4A16-85A6-660CDD3048B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodingTest", "EncodingTest\EncodingTest.csproj", "{D1B68003-09F5-4501-8F42-FCBEB440F3BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +103,10 @@ Global
 		{246E49AC-673E-4A16-85A6-660CDD3048B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{246E49AC-673E-4A16-85A6-660CDD3048B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{246E49AC-673E-4A16-85A6-660CDD3048B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
