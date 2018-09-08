@@ -36,7 +36,7 @@ namespace CsLearning
 
 
 
-        private static ILesson GetLesson<T>()
+        private static ILesson /*T*/ GetLesson<T>()
             where T : ILesson, new()
         {
             return new T();
