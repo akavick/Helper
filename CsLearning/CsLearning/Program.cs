@@ -29,7 +29,7 @@ namespace CsLearning
 
         private static void Run()
         {
-            GetLesson<GenericsLesson001>().Run();
+            GetLesson<NameOf>().Run();
         }
 
 
