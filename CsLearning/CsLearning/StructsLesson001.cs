@@ -1,6 +1,6 @@
 ﻿namespace CsLearning
 {
-    public class OperatorsOverloading001 : ILesson
+    public class StructsLesson001 : ILesson
     {
         
 
