@@ -1,4 +1,9 @@
-﻿namespace CsLearning
+﻿using System;
+using System.Linq;
+
+
+
+namespace CsLearning
 {
 
     public class Deconstruction : ILesson
@@ -6,7 +11,7 @@
 
         public void Run()
         {
-            
+
         }
 
     }

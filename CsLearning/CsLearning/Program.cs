@@ -29,7 +29,7 @@ namespace CsLearning
 
         private static void Run()
         {
-            GetLesson<TraceDebug>().Run();
+            GetLesson<Deconstruction>().Run();
         }
 
 
