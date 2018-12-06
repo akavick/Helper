@@ -5,14 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace WinEventLog
 {
+
+
+
     class Program
     {
         static void Main(string[] args)
         {
         }
     }
+
+
 
     public class ClsEventLog
     {
@@ -36,6 +43,9 @@ namespace WinEventLog
                 return false;
             }
         }
+
+
+
         public void WriteToEventLog(string strLogName, string strSource, string strErrDetail)
         {
             var sqlEventLog = new EventLog();
@@ -43,7 +53,9 @@ namespace WinEventLog
             try
             {
                 if (!EventLog.SourceExists(strLogName))
+                {
                     CreateLog(strLogName);
+                }
 
                 sqlEventLog.Source = strLogName;
                 sqlEventLog.WriteEntry(Convert.ToString(strSource) + Convert.ToString(strErrDetail), EventLogEntryType.Information);
@@ -61,4 +73,7 @@ namespace WinEventLog
             }
         }
     }
+
+
+
 }

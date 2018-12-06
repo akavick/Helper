@@ -1,36 +1,52 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
-
-
 
 
 
 namespace AsyncAwaitTest
 {
 
+
+
     internal class Program
     {
         private static async Task Main()
         {
-            var r = A().Result;
+            Console.WriteLine("BEGIN\n\n");
 
-            Console.WriteLine(r);
+            var r = await A(1000);
+
+            Console.WriteLine($"\n\n\n{r}");
+
+            Console.WriteLine("\n\nEND\n\n");
         }
 
 
 
-
-
-        private static async Task<int> A()
+        private static async Task<int> A(int count)
         {
-            await B();
+            var tasks =
+                Enumerable.Range(1, count)
+                          .Select(async i => await B(i))
+                          .ToArray();
 
-            return 0;
+            await Task.WhenAll(tasks);
+
+            return count;
         }
-        private static async Task B()
+
+
+
+        private static async Task<int> B(int i)
         {
             await Task.Delay(500);
+            Console.Write($"{i,-5}");
+
+            return i;
         }
     }
+
+
 
 }
