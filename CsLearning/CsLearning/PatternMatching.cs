@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 
 
@@ -9,7 +10,7 @@ namespace CsLearning
     public class PatternMatching : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             object o = "3";
             int j = 4;

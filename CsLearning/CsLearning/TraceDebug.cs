@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 
 
 
@@ -9,7 +10,7 @@ namespace CsLearning
     public class TraceDebug : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             /*
              * 0

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 
 
@@ -43,7 +44,7 @@ namespace CsLearning
     public class MonadLesson001 : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             var val = 
                 new Monad<int>(5)

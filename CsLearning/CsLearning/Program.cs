@@ -1,6 +1,5 @@
 ﻿using System;
-
-
+using System.Threading.Tasks;
 
 
 
@@ -13,26 +12,15 @@ namespace CsLearning
 
 
 
-
-
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             Console.WriteLine($"START{_nl}");
-            Run();
+
+            await GetLesson<AsyncAwaitLesson001>().Run();
+
             Console.WriteLine($"{_nl}FINISH{_nl}");
             Console.ReadKey(false);
         }
-
-
-
-
-
-        private static void Run()
-        {
-            GetLesson<Deconstruction>().Run();
-        }
-
-
 
 
 

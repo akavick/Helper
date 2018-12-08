@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Threading.Tasks;
 
 
 
@@ -12,7 +13,7 @@ namespace CsLearning
     public class ImmutableCollections : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             var cities = new List<string> { "Moscow, Minsk" };
             var immutableCities = cities.ToImmutableList();

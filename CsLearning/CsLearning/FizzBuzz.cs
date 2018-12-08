@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 
@@ -9,7 +10,7 @@ namespace CsLearning
     public class FizzBuzz : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             Enumerable.Range(1, 100)
                       .ToList()

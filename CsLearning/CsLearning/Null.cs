@@ -1,10 +1,14 @@
-﻿namespace CsLearning
+﻿using System.Threading.Tasks;
+
+
+
+namespace CsLearning
 {
 
     public class Null : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             int x = default;
 

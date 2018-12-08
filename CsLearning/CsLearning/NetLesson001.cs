@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Net;
+using System.Threading.Tasks;
+
 using static System.Console;
 
 
@@ -12,7 +14,7 @@ namespace CsLearning
     public class NetLesson001 : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             var uri = new Uri("http://world.episerver.com/cms/?q=pagetype");
 

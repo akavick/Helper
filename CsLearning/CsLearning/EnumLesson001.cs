@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 
 
@@ -30,7 +31,7 @@ namespace CsLearning
     public class EnumLesson001 : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             var foregroundColor = (ConsoleColor) Enum.Parse(typeof(ConsoleColor), "red", true);
 

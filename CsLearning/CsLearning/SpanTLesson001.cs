@@ -1,6 +1,5 @@
 ﻿using System;
-
-
+using System.Threading.Tasks;
 
 
 
@@ -9,7 +8,7 @@ namespace CsLearning
 
     public class SpanTLesson001 : ILesson
     {
-        public void Run()
+        public async Task Run()
         {
             // позволяет создать коллекцию данных, хранимую в стеке, но доступ к которой осуществляется по ссылке
 

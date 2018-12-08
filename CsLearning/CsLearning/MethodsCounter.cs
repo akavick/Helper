@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 
 
@@ -9,7 +10,7 @@ namespace CsLearning
 
     public class MethodsCounter : ILesson
     {
-        public void Run()
+        public async Task Run()
         {
             // перебор сборок, на которые ссылается приложение
             foreach (var r in Assembly.GetEntryAssembly().GetReferencedAssemblies())

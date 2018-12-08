@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 
 
@@ -7,7 +8,7 @@ namespace CsLearning
 
     public class NameOf : ILesson
     {
-        public void Run()
+        public async Task Run()
         {
             var heightInMetres = 1.88;
 

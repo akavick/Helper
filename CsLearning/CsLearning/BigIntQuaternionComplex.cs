@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Threading.Tasks;
 
 
 
@@ -8,7 +9,7 @@ namespace CsLearning
     public class BigIntQuaternionComplex : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             var q = new Quaternion();
             var i = new BigInteger();

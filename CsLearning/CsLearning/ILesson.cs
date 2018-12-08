@@ -1,7 +1,13 @@
-﻿namespace CsLearning
+﻿using System.Threading.Tasks;
+
+
+
+namespace CsLearning
 {
+
     public interface ILesson
     {
-        void Run();
+        Task Run();
     }
+
 }

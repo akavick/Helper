@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 
 
@@ -8,7 +9,7 @@ namespace CsLearning
     public class NumbersNotation : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             var decimalNotation = 2_000_000;                                // два миллиона
             var binaryNotation = 0b0001_1110_1000_0100_1000_0000;           // два миллиона

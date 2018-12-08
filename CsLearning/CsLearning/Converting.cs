@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 
 
@@ -8,7 +9,7 @@ namespace CsLearning
     public class Converting : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             double g = 9.8;
             int h = Convert.ToInt32(g);

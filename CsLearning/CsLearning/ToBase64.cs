@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 
 
@@ -8,7 +9,7 @@ namespace CsLearning
     public class ToBase64 : ILesson
     {
 
-        public void Run()
+        public async Task Run()
         {
             /*
              При необходимости сохранить или передать бинарный объект лучше не отправлять 
