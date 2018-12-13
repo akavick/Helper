@@ -14,7 +14,7 @@ namespace CsLearningLibrary
         {
             var r = await DoCycle(1000);
 
-            Console.WriteLine();
+            Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}Count: {r}");
         }
 
 
@@ -27,16 +27,22 @@ namespace CsLearningLibrary
                           .Select(DoSingle)
                           .ToArray();
 
-            await Task.WhenAll(tasks);
+            var c = await Task.WhenAll(tasks);
 
-            return count;
+            return c.Length;
         }
 
 
 
         private static async Task<int> DoSingle(int i)
         {
-            await Task.Delay(500);
+            //await Task.Delay(5000);
+
+            await Task.Run(() =>
+            {
+                for (var j = 0; j < 100000000; j++) {};
+            });
+
             Console.Write($"{i,-5}");
 
             return i;
