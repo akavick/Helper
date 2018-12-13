@@ -13,7 +13,6 @@ namespace CsLearningLibrary
         public async Task Run()
         {
             var r = await DoCycle(1000);
-
             Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}Count: {r}");
         }
 
@@ -23,8 +22,8 @@ namespace CsLearningLibrary
         {
             var tasks =
                 Enumerable.Range(1, count)
-                          //.Select(async i => await DoSingle(i))
-                          .Select(DoSingle)
+                          .Select(async i => await DoSingle(i))
+                          //.Select(DoSingle)
                           .ToArray();
 
             var c = await Task.WhenAll(tasks);
