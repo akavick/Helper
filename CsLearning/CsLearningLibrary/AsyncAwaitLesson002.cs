@@ -19,9 +19,9 @@ namespace CsLearningLibrary
 
         public async Task Run()
         {
-            var r = await DoCycle(1000);
-
-            Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}Count: {r}");
+            //var r = await DoCycle(1000);
+            _ = DoCycle(1000);
+            //Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}Count: {r}");
         }
 
 
@@ -64,7 +64,7 @@ namespace CsLearningLibrary
 
         private async Task<int> DoSingle(int i)
         {
-            //await Task.Delay(500);
+            await Task.Delay(10);
 
             //await Task.Run(() =>
             //{
