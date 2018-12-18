@@ -34,7 +34,7 @@ namespace CsLearningLibrary
 
 
 
-    public class ExtnsionsLesson001 : ILesson
+    public class ExtensionsLesson001 : ILesson
     {
 
         public async Task Run()
