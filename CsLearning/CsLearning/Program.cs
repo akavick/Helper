@@ -18,7 +18,7 @@ namespace CsLearning
         {
             Console.WriteLine($"START{_nl}");
 
-            await GetLesson<EventLogLesson001>().Run();
+            await GetLesson<JsonSerialization>().Run();
 
             Console.WriteLine($"{_nl}FINISH{_nl}");
             Console.ReadKey(false);
