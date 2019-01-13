@@ -7,7 +7,6 @@ using CsLearningLibrary;
 
 namespace CsLearning
 {
-
     public class Program
     {
         private static readonly string _nl = Environment.NewLine;
@@ -19,6 +18,10 @@ namespace CsLearning
             Console.WriteLine($"START{_nl}");
 
             await GetLesson<RefStruct>().Run();
+
+            //Environment.FailFast("BOOM!");
+
+            //Console.WriteLine(System.Diagnostics.Process.GetCurrentProcess().Threads.Count);
 
             Console.WriteLine($"{_nl}FINISH{_nl}");
             Console.ReadKey(false);

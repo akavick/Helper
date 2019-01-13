@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MontyHall", "MontyHall\Mont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodingTest", "EncodingTest\EncodingTest.csproj", "{D1B68003-09F5-4501-8F42-FCBEB440F3BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{302DB3B9-6AED-475B-94B0-47E1C18BC117}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1B68003-09F5-4501-8F42-FCBEB440F3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302DB3B9-6AED-475B-94B0-47E1C18BC117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302DB3B9-6AED-475B-94B0-47E1C18BC117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302DB3B9-6AED-475B-94B0-47E1C18BC117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302DB3B9-6AED-475B-94B0-47E1C18BC117}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
