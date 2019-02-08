@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsLearning", "CsLearning\CsLearning.csproj", "{22F14A08-5F2C-4EC8-9F21-ACF2F4EF2374}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsLearningLibrary", "CsLearningLibrary\CsLearningLibrary.csproj", "{94AF7794-18BB-49D7-A92A-249E7F3E7E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CsLearningLibrary", "CsLearningLibrary\CsLearningLibrary.csproj", "{94AF7794-18BB-49D7-A92A-249E7F3E7E9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithEFCore", "WorkingWithEFCore\WorkingWithEFCore.csproj", "{4A2F6D82-13CE-40B4-AA62-19386B2CD04D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{94AF7794-18BB-49D7-A92A-249E7F3E7E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94AF7794-18BB-49D7-A92A-249E7F3E7E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94AF7794-18BB-49D7-A92A-249E7F3E7E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A2F6D82-13CE-40B4-AA62-19386B2CD04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2F6D82-13CE-40B4-AA62-19386B2CD04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2F6D82-13CE-40B4-AA62-19386B2CD04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2F6D82-13CE-40B4-AA62-19386B2CD04D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

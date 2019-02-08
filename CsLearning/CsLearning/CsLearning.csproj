@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CsLearningLibrary\CsLearningLibrary.csproj" />
+    <ProjectReference Include="..\WorkingWithEFCore\WorkingWithEFCore.csproj" />
   </ItemGroup>
 
 </Project>
