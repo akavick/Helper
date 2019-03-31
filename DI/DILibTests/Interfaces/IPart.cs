@@ -1,6 +1,6 @@
 ﻿namespace DILibTests.Interfaces
 {
-    public interface IPart : IElement
+    public interface IPart
     {
         ISubPart LeftSubPart { get; }
         ISubPart RightSubPart { get; }

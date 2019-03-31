@@ -7,7 +7,7 @@ namespace DILibTests.Classes
         public IPart MainPart { get; }
         public ISubPart FirstSubPart { get; }
         public ISubPart SecondSubPart { get; }
-        public string Name => nameof(Thing);
+
 
         public Thing(IPart mainPart, ISubPart firstSubPart, ISubPart secondSubPart)
         {
