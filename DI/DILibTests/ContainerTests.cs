@@ -28,7 +28,6 @@ namespace DILibTests
 
             container.RegisterTransient<IThing, Thing>();
             Assert.True(container.IsRegistered<IThing>());
-            Assert.False(container.IsRegistered<Thing>());
         }
 
 
@@ -119,7 +118,7 @@ namespace DILibTests
 
 
         [Fact]
-        public void GettingWrongInfoTest()
+        public void GettingWrongInfoTest1()
         {
             var container = _container.Resolve<IContainer>();
             
@@ -127,11 +126,25 @@ namespace DILibTests
             {
                 _ = container.IsRegistered(null);
             });
+        }
 
+
+        [Fact]
+        public void GettingWrongInfoTest2()
+        {
+            var container = _container.Resolve<IContainer>();
+            
             Assert.Throws<InvalidOperationException>(() =>
             {
                 _ = container.GetImplementationType<IThing>();
             });
+        }
+
+
+        [Fact]
+        public void GettingWrongInfoTest3()
+        {
+            var container = _container.Resolve<IContainer>();
 
             Assert.Throws<InvalidOperationException>(() =>
             {
