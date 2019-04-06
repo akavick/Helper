@@ -218,7 +218,17 @@ namespace DILib
                     $"Тип {imp.FullName} не может быть приведён к типу {abs.FullName}.");
             }
 
-            var foundTypes = new[] { abs, imp }.Distinct().ToList();
+            var foundTypes = new List<Type>();
+
+            if (!Singletons.ContainsKey(abs) && !ScopedInstances.ContainsKey(abs))
+            {
+                foundTypes.Add(abs);
+            }
+
+            if (!Singletons.ContainsKey(imp) && !ScopedInstances.ContainsKey(imp) && !foundTypes.Contains(imp))
+            {
+                foundTypes.Add(imp);
+            }
 
             void CheckRecursion(Type type)
             {
@@ -232,12 +242,14 @@ namespace DILib
 
                 var constructorInfo = ctors.Single();
 
-                var parameterTypes = constructorInfo.GetParameters()
-                                                    .Select(p => p.ParameterType)
-                                                    .Distinct()
-                                                    .ToArray();
+                var parameterTransientTypes = constructorInfo.GetParameters()
+                                                             .Select(p => p.ParameterType)
+                                                             .Except(Singletons.Keys)
+                                                             .Except(ScopedInstances.Keys)
+                                                             .Distinct()
+                                                             .ToArray();
 
-                foreach (var parameterType in parameterTypes)
+                foreach (var parameterType in parameterTransientTypes)
                 {
                     if (foundTypes.Contains(parameterType))
                     {
@@ -251,7 +263,7 @@ namespace DILib
                     }
                 }
 
-                foundTypes.AddRange(parameterTypes);
+                foundTypes.AddRange(parameterTransientTypes);
             }
 
             CheckRecursion(imp);

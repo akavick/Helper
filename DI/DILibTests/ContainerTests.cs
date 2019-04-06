@@ -6,6 +6,7 @@ using Xunit;
 
 namespace DILibTests
 {
+    //todo: разделить тесты, создать тесты для Scoped и Singleton
     public class ContainerTests
     {
         private readonly IContainer _container = new Container();
