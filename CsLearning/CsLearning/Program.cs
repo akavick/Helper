@@ -17,7 +17,7 @@ namespace CsLearning
         {
             Console.WriteLine($"START{_nl}");
 
-            await GetLesson<RefStruct>().Run();
+            await GetLesson<IEnumerableLesson001>().Run();
 
             //Environment.FailFast("BOOM!");
 
